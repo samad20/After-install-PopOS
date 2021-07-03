@@ -51,8 +51,6 @@ wget https:#dl.discordapp.net/apps/linux/0.0.15/discord-0.0.15.deb	\
 sudo dpkg -i discord-0.0.15.deb	\
 sudo apt-get -f install	\
 
-#Enable ‘Shell theme’ in Gnome Tweak Tool
-sudo apt install chrome-gnome-shell	\
 #......................................................................................
 #Icons & Themes
 #......................................................................................
@@ -61,6 +59,9 @@ sudo apt install chrome-gnome-shell	\
 sudo add-apt-repository ppa:papirus/papirus	\
 sudo apt-get update	\
 sudo apt-get install papirus-icon-theme	\
+
+#Enable ‘Shell theme’ in Gnome Tweak Tool
+sudo apt install chrome-gnome-shell	\
 
 #......................................................................................
 sudo apt-get update

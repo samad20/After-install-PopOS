@@ -61,7 +61,7 @@ sudo apt-get update	\
 sudo apt-get install papirus-icon-theme	\
 
 #Enable ‘Shell theme’ in Gnome Tweak Tool
-sudo apt install chrome-gnome-shell	\
+sudo apt install -y chrome-gnome-shell	\
 
 #......................................................................................
 sudo apt-get update

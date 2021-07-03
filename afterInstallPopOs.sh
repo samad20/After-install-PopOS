@@ -19,6 +19,16 @@ sudo apt install ubuntu-restricted-extras -y	\
 sudo apt install neofetch -y	\
 
 #......................................................................................
+#Saving Power on Laptop ( uncomment following command if you using a laptop
+
+#git clone https://github.com/AdnanHodzic/auto-cpufreq.git	\
+#cd auto-cpufreq && sudo ./auto-cpufreq-installer	\
+#cd \
+
+#......................................................................................
+
+
+#......................................................................................
 #programms
 #......................................................................................
 
@@ -44,7 +54,7 @@ sudo apt-get -f install	\
 #Enable ‘Shell theme’ in Gnome Tweak Tool
 sudo apt install chrome-gnome-shell	\
 #......................................................................................
-Icons & Themes
+#Icons & Themes
 #......................................................................................
 
 #papirus icons

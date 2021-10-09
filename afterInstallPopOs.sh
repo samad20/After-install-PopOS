@@ -141,17 +141,18 @@ do
         if [[ $choice3 -eq  1 ]]
         then
           echo "Installing Atom...."
-          sudo add-apt-repository ppa:webupd8team/atom
-          sudo apt-get update
-          sudo apt-get install -y atom 
+          sudo apt install -y gdebi-core
+          wget -O ~/atom.deb "https://atom.io/download/deb"
+          sudo gdebi ~/atom.deb
+          
+
         fi 
 
         if [[ $choice3 -eq  2 ]]
         then
           echo "Installing Audacity...."
-          sudo add-apt-repository ppa:ubuntuhandbook1/audacity
-          sudo apt update
-          sudo apt install -y audacity
+          flatpak install -y flathub org.audacityteam.Audacity
+          
         fi
 
         if [[ $choice3 -eq  3 ]]
@@ -167,7 +168,7 @@ do
         if [[ $choice3 -eq  4 ]]
         then
           echo "Installing Chromium-browser...."
-          sudo apt install -y chromium 
+          flatpak install -y flathub org.chromium.Chromium
         fi
 
         if [[ $choice3 -eq  5 ]]
@@ -181,30 +182,30 @@ do
         if [[ $choice3 -eq  6 ]]
         then
           echo "Installing Gimp...."
-          sudo add-apt-repository ppa:ubuntuhandbook1/gimp
-          sudo apt update
-          sudo apt -y install gimp 
+          flatpak install -y flathub org.gimp.GIMP
         fi
 
         if [[ $choice3 -eq  7 ]]
         then
           echo "Installing papirus icons...."
-          sudo add-apt-repository ppa:papirus/papirus
-          sudo apt-get update 
-          sudo apt-get install -y papirus-icon-theme
+          sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
+          sudo apt-get -y install dirmngr
+          sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
+          sudo apt-get update
+          sudo apt-get install papirus-icon-theme
+
         fi
 
         if [[ $choice3 -eq  8 ]]
         then
           echo "Installing Shortcut...."
-          sudo snap install shotcut --classic 
+          flatpak install -y flathub org.shotcut.Shotcut
         fi
 
         if [[ $choice3 -eq  9 ]]
         then
           echo "Installing Skype...."
-          wget https://go.skype.com/skypeforlinux-64.deb
-          sudo apt install ./skypeforlinux-64.deb
+          
         fi
 
         if [[ $choice3 -eq  10 ]]
@@ -220,7 +221,7 @@ do
           sudo apt update
           sudo apt install apt-transport-https ca-certificates curl software-properties-common
           curl -fsSL https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-          sudo add-apt-repository "deb https://download.sublimetext.com/ apt/stable/"
+          sudo add-apt-repository -y "deb https://download.sublimetext.com/ apt/stable/"
           sudo apt update
           sudo apt install -y sublime-text
         fi
@@ -228,9 +229,7 @@ do
         if [[ $choice3 -eq  12 ]]
         then
           echo "Installing Timeshift...."
-          sudo add-apt-repository -y ppa:teejee2008/ppa
-          sudo apt update
-          sudo apt install -y timeshift
+          
         fi
 
         if [[ $choice3 -eq  13 ]]

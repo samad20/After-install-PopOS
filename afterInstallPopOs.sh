@@ -9,6 +9,7 @@ echo
 echo "1. Update and upgrade"
 echo "2. Important packages"
 echo "3. Apps"
+echo "4. Exit"
 
 echo ""
 echo -n "Enter a naumber from the list: "

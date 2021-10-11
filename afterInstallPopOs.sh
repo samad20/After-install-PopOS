@@ -152,6 +152,7 @@ do
         then
           echo "Installing Audacity...."
 		  sudo apt install -y flatpak
+		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           flatpak install -y flathub org.audacityteam.Audacity
           
         fi
@@ -170,6 +171,7 @@ do
         then
           echo "Installing Chromium-browser...."
           sudo apt install -y flatpak
+		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 		  flatpak install -y flathub org.chromium.Chromium
         fi
 
@@ -185,6 +187,7 @@ do
         then
           echo "Installing Gimp...."
           sudo apt install -y flatpak
+		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 		  flatpak install -y flathub org.gimp.GIMP
         fi
 
@@ -203,6 +206,7 @@ do
         then
           echo "Installing Shortcut...."
           sudo apt install -y flatpak
+		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 		  flatpak install -y flathub org.shotcut.Shotcut
         fi
 

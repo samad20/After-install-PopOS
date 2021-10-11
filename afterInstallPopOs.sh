@@ -151,6 +151,7 @@ do
         if [[ $choice3 -eq  2 ]]
         then
           echo "Installing Audacity...."
+		  sudo apt install -y flatpak
           flatpak install -y flathub org.audacityteam.Audacity
           
         fi
@@ -168,7 +169,8 @@ do
         if [[ $choice3 -eq  4 ]]
         then
           echo "Installing Chromium-browser...."
-          flatpak install -y flathub org.chromium.Chromium
+          sudo apt install -y flatpak
+		  flatpak install -y flathub org.chromium.Chromium
         fi
 
         if [[ $choice3 -eq  5 ]]
@@ -182,7 +184,8 @@ do
         if [[ $choice3 -eq  6 ]]
         then
           echo "Installing Gimp...."
-          flatpak install -y flathub org.gimp.GIMP
+          sudo apt install -y flatpak
+		  flatpak install -y flathub org.gimp.GIMP
         fi
 
         if [[ $choice3 -eq  7 ]]
@@ -199,7 +202,8 @@ do
         if [[ $choice3 -eq  8 ]]
         then
           echo "Installing Shortcut...."
-          flatpak install -y flathub org.shotcut.Shotcut
+          sudo apt install -y flatpak
+		  flatpak install -y flathub org.shotcut.Shotcut
         fi
 
         if [[ $choice3 -eq  9 ]]
@@ -231,6 +235,9 @@ do
         if [[ $choice3 -eq  12 ]]
         then
           echo "Installing Timeshift...."
+		  sudo add-apt-repository -y ppa:teejee2008/timeshift
+		  sudo apt-get update
+		  sudo apt-get install -y timeshift
           
         fi
 

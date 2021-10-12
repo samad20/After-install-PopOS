@@ -18,5 +18,9 @@ chmod +x afterInstallPopOs.sh
 3. Run
 
 ```
+bash afterInstallPopOs.sh
+```
+OR
+```
 ./afterInstallPopOs.sh
 ```

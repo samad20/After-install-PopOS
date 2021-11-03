@@ -24,13 +24,14 @@ do
     1)
       echo "update & upgrade Starting now...."
       sudo apt update
-      sudo apt upgrade -y 
+      echo "Enter y to accept"
+      sudo apt upgrade
       choice=0
       ;;
 
     2)
       choice2=0
-      while [ $choice2 -ne 10 ]
+      while [ $choice2 -ne 12 ]
       do
         echo "chose which package you want by typing number"
         echo "1. build-essential"
@@ -41,8 +42,10 @@ do
         echo "6. git"
         echo "7. default-jre & default-jdk"
         echo "8. python3 and pip"
-        echo "9. all"
-        echo "10. Back to list.."
+        echo "9. speedtest-cli"
+        echo "10. cpufetch"
+        echo "11. all"
+        echo "12. Back to list.."
         echo -n "Enter a naumber: "
         read choice2
         echo
@@ -94,19 +97,40 @@ do
           echo "Installing python3 and pip...."
           sudo apt install -y python3 python3-pip
         fi 
-
+        
         if [[ $choice2 -eq 9 ]]
         then
-          echo "Installing all...."
-          sudo apt install -y build-essential gnome-tweaks neofetch ubuntu-restricted-extras gdebi-core git default-jre default-jdk python3 python3-pip
+          echo "Installing speedtest-cli...."
+          sudo apt install -y speedtest-cli
+        fi 
+        
+        if [[ $choice2 -eq 10 ]]
+        then
+          echo "Installing cpufetch...."
+          git clone https://github.com/Dr-Noob/cpufetch
+          cd cpufetch
+          make
+          sudo make install
+          cd
         fi 
 
-        if [[ $choice2 -gt 9 ]] || [[ $choice2 -lt 1 ]]  && [ $choice2 -ne 10 ]
+        if [[ $choice2 -eq 11 ]]
+        then
+          echo "Installing all...."
+          sudo apt install -y build-essential gnome-tweaks neofetch ubuntu-restricted-extras gdebi-core git default-jre default-jdk python3 python3-pip speedtest-cli
+          git clone https://github.com/Dr-Noob/cpufetch
+          cd cpufetch
+          make
+          sudo make install
+          cd
+        fi 
+
+        if [[ $choice2 -gt 11 ]] || [[ $choice2 -lt 1 ]]  && [ $choice2 -ne 12 ]
         then
           echo "Invalid number !"
         fi
 
-        if [[ $choice2 -eq 10 ]]
+        if [[ $choice2 -eq 12 ]]
         then
           echo "Back to list.."
         fi
@@ -151,8 +175,6 @@ do
         if [[ $choice3 -eq  2 ]]
         then
           echo "Installing Audacity...."
-		  sudo apt install -y flatpak
-		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           flatpak install -y flathub org.audacityteam.Audacity
           
         fi
@@ -160,19 +182,17 @@ do
         if [[ $choice3 -eq  3 ]]
         then
           echo "Installing Brave...."
-          sudo apt install apt-transport-https curl
-          sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-          echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-          sudo apt update
-          sudo apt install -y brave-browser
+	  sudo apt install apt-transport-https curl
+	  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+	  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+	  sudo apt update
+	  sudo apt install -y brave-browser
         fi
 
         if [[ $choice3 -eq  4 ]]
         then
           echo "Installing Chromium-browser...."
-          sudo apt install -y flatpak
-		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-		  flatpak install -y flathub org.chromium.Chromium
+          flatpak install -y flathub org.chromium.Chromium
         fi
 
         if [[ $choice3 -eq  5 ]]
@@ -187,8 +207,7 @@ do
         then
           echo "Installing Gimp...."
           sudo apt install -y flatpak
-		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-		  flatpak install -y flathub org.gimp.GIMP
+          flatpak install -y flathub org.gimp.GIMP
         fi
 
         if [[ $choice3 -eq  7 ]]
@@ -205,9 +224,7 @@ do
         if [[ $choice3 -eq  8 ]]
         then
           echo "Installing Shortcut...."
-          sudo apt install -y flatpak
-		  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-		  flatpak install -y flathub org.shotcut.Shotcut
+          flatpak install -y flathub org.shotcut.Shotcut
         fi
 
         if [[ $choice3 -eq  9 ]]
@@ -239,9 +256,9 @@ do
         if [[ $choice3 -eq  12 ]]
         then
           echo "Installing Timeshift...."
-		  sudo add-apt-repository -y ppa:teejee2008/timeshift
-		  sudo apt-get update
-		  sudo apt-get install -y timeshift
+          sudo add-apt-repository -y ppa:teejee2008/timeshift
+          sudo apt-get update
+          sudo apt-get install -y timeshift
           
         fi
 

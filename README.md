@@ -3,6 +3,16 @@ This script [afterInstallPopOs.sh](https://github.com/samad20/After_Install_Pop_
 
 To use this script copy this command to Terminal:
 
+ 1. Download
 ```
-bash <(wget -qO- https://raw.githubusercontent.com/samad20/After-install-PopOS/main/afterInstallPopOs.sh)
+curl https://raw.githubusercontent.com/samad20/After-install-PopOS/main/afterInstallPopOs.sh --output afterInstallPopOs.sh
 ```
+ 2. Read, Edit & save
+ 
+ 3. Execute
+```
+chmod +x afterInstallPopOs.sh
+```
+ 4. Run
+```
+./afterInstallPopOs.sh

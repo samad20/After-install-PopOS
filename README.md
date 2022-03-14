@@ -9,6 +9,7 @@ curl https://raw.githubusercontent.com/samad20/After-install-PopOS/main/afterIns
 ```
  2. Read, Edit & save
  
+ 
  3. Execute
 ```
 chmod +x afterInstallPopOs.sh

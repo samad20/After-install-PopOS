@@ -59,8 +59,8 @@ do
         echo "  7. speedtest-cli"
 
         printf "\nDevTools:\n"
-        echo "  8. git"
-        echo "  9. default-jre & default-jdk"
+        echo "  8.  git"
+        echo "  9.  default-jre & default-jdk"
         echo "  10. python3 and pip"
         echo "  11. nodejs"
 
@@ -177,15 +177,15 @@ do
       while [ $choice3 -ne 17 ]
       do
         echo "chose which apps you want by typing number"
-        echo "1. Atom"
-        echo "2. Audacity"
-        echo "3. Brave"
-        echo "4. Chromium-browser"
-        echo "5. Discord"
-        echo "6. Gimp"
-        echo "7. papirus icons"
-        echo "8. Shortcut"
-        echo "9. Skype"
+        echo "1.  Atom"
+        echo "2.  Audacity"
+        echo "3.  Brave"
+        echo "4.  Chromium-browser"
+        echo "5.  Discord"
+        echo "6.  Gimp"
+        echo "7.  papirus icons"
+        echo "8.  Shortcut"
+        echo "9.  Skype"
         echo "10. Steam"
         echo "11. Sublime"
         echo "12. Timeshift"
@@ -217,17 +217,17 @@ do
         if [[ $choice3 -eq  3 ]]
         then
           echo "Installing Brave...."
-	  sudo apt install apt-transport-https curl
-	  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-	  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-	  sudo apt update
-	  sudo apt install -y brave-browser
+          sudo apt install apt-transport-https curl
+          sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+          echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+          sudo apt update
+          sudo apt install -y brave-browser
         fi
 
         if [[ $choice3 -eq  4 ]]
         then
           echo "Installing Chromium-browser...."
-          flatpak install -y flathub org.chromium.Chromium
+          sudo apt install -y chromium-browser
         fi
 
         if [[ $choice3 -eq  5 ]]
@@ -241,18 +241,13 @@ do
         if [[ $choice3 -eq  6 ]]
         then
           echo "Installing Gimp...."
-          sudo apt install -y flatpak
           flatpak install -y flathub org.gimp.GIMP
         fi
 
         if [[ $choice3 -eq  7 ]]
         then
           echo "Installing papirus icons...."
-          sudo sh -c "echo 'deb http://ppa.launchpad.net/papirus/papirus/ubuntu focal main' > /etc/apt/sources.list.d/papirus-ppa.list"
-          sudo apt-get -y install dirmngr
-          sudo apt-key adv --recv-keys --keyserver keyserver.ubuntu.com E58A9D36647CAE7F
-          sudo apt-get update
-          sudo apt-get install papirus-icon-theme
+          wget -qO- https://git.io/papirus-icon-theme-install | sh
 
         fi
 
@@ -291,8 +286,6 @@ do
         if [[ $choice3 -eq  12 ]]
         then
           echo "Installing Timeshift...."
-          sudo add-apt-repository -y ppa:teejee2008/timeshift
-          sudo apt-get update
           sudo apt-get install -y timeshift
           
         fi
@@ -313,12 +306,12 @@ do
         then
           echo "Installing Visual Studio Code...."
           wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-	  sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
-	  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
-	  sudo apt install -y apt-transport-https
-	  sudo apt update
-	  sudo apt install -y code 
+	        sudo install -o root -g root -m 644 packages.microsoft.gpg /etc/apt/trusted.gpg.d/
+	        sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+          rm -f packages.microsoft.gpg
+	        sudo apt install -y apt-transport-https
+	        sudo apt update
+	        sudo apt install -y code 
         fi
 
         if [[ $choice3 -eq  16 ]]

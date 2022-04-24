@@ -37,116 +37,137 @@ do
 
     1)
       echo "update & upgrade Starting now...."
-      sudo apt update
-      echo "Enter y to accept"
-      sudo apt upgrade
+      sudo apt update && sudo apt -y upgrade
       choice=0
       ;;
 
     2)
       choice2=0
-      while [ $choice2 -ne 12 ]
+      while [ $choice2 -ne 14 ]
       do
-        echo "chose which package you want by typing number"
-        echo "1. build-essential"
-        echo "2. gnome-tweaks"
-        echo "3. neofetch"
-        echo "4. ubuntu-restricted-extras"
-        echo "5. gdebi-core"
-        echo "6. git"
-        echo "7. default-jre & default-jdk"
-        echo "8. python3 and pip"
-        echo "9. speedtest-cli"
-        echo "10. cpufetch"
-        echo "11. all"
-        echo "12. Back to list.."
+        printf "\nchose which package you want by typing number"
+        
+        printf "\n\nEssential tools:\n" 
+        echo "  1. build-essential-compiling basic software written in C and C++"
+        echo "  2. gdebi-core-install deb packages & its dependencies"
+        echo "  3. gnome-tweaks"
+        echo "  4. ubuntu-restricted-extras"
+        
+        printf "\nTerminal tools:\n"
+        echo "  5. cpufetch"
+        echo "  6. neofetch"
+        echo "  7. speedtest-cli"
+
+        printf "\nDevTools:\n"
+        echo "  8. git"
+        echo "  9. default-jre & default-jdk"
+        echo "  10. python3 and pip"
+        echo "  11. nodejs"
+
+        printf "\nShell:\n"
+        echo "  12. zsh"
+        echo "  13. Oh My ZSH!"
+
+        printf "\n14. Back to list..\n"
         echo -n "Enter a naumber: "
         read choice2
         echo
         
         if [[ $choice2 -eq 1 ]]
         then
-          echo "Installing build-essential...."
-          sudo apt install -y build-essential
+            echo "Installing build-essential...."
+            sudo apt install -y build-essential
         fi 
 
         if [[ $choice2 -eq 2 ]]
         then
-          echo "Installing gnome-tweaks...."
-          sudo apt install -y gnome-tweaks
+            echo "Installing gdebi-core...."
+            sudo apt install -y gdebi-core
         fi 
 
         if [[ $choice2 -eq 3 ]]
         then
-          echo "Installing neofetch...."
-          sudo apt install -y neofetch
+            echo "Installing gnome-tweaks...."
+            sudo apt install -y gnome-tweaks
         fi 
-        
+
         if [[ $choice2 -eq 4 ]]
         then
-          echo "Installing ubuntu-restricted-extras...."
-          sudo apt install -y ubuntu-restricted-extras
+            echo "Installing ubuntu-restricted-extras...."
+            sudo apt install -y ubuntu-restricted-extras
         fi 
-        
+
         if [[ $choice2 -eq 5 ]]
         then
-          echo "Installing gdebi-core...."
-          sudo apt install -y gdebi-core
-        fi 
-        
+            echo "Installing cpufetch...."
+            git clone https://github.com/Dr-Noob/cpufetch
+            cd cpufetch
+            make
+            sudo make install
+            cd
+        fi
+
         if [[ $choice2 -eq 6 ]]
         then
-          echo "Installing git...."
-          sudo apt install -y git
+            echo "Installing neofetch...."
+            sudo apt install -y neofetch
         fi 
+
 
         if [[ $choice2 -eq 7 ]]
         then
-          echo "Installing default-jre & default-jdk...."
-          sudo apt install -y default-jre default-jdk 
-        fi 
+            echo "Installing speedtest-cli...."
+            sudo apt install -y speedtest-cli
+        fi
 
         if [[ $choice2 -eq 8 ]]
         then
-          echo "Installing python3 and pip...."
-          sudo apt install -y python3 python3-pip
+            echo "Installing git...."
+            sudo apt install -y git
         fi 
-        
+
         if [[ $choice2 -eq 9 ]]
         then
-          echo "Installing speedtest-cli...."
-          sudo apt install -y speedtest-cli
+            echo "Installing default-jre & default-jdk...."
+            sudo apt install -y default-jre default-jdk 
         fi 
-        
+
         if [[ $choice2 -eq 10 ]]
         then
-          echo "Installing cpufetch...."
-          git clone https://github.com/Dr-Noob/cpufetch
-          cd cpufetch
-          make
-          sudo make install
-          cd
+            echo "Installing python3 and pip...."
+            sudo apt install -y python3 python3-pip
         fi 
 
         if [[ $choice2 -eq 11 ]]
         then
-          echo "Installing all...."
-          sudo apt install -y build-essential gnome-tweaks neofetch ubuntu-restricted-extras gdebi-core git default-jre default-jdk python3 python3-pip speedtest-cli
-          git clone https://github.com/Dr-Noob/cpufetch
-          cd cpufetch
-          make
-          sudo make install
-          cd
+            echo "Installing nodejs"
+            sudo apt install -y nodejs npm
         fi 
-
-        if [[ $choice2 -gt 11 ]] || [[ $choice2 -lt 1 ]]  && [ $choice2 -ne 12 ]
-        then
-          echo "Invalid number !"
-        fi
 
         if [[ $choice2 -eq 12 ]]
         then
-          echo "Back to list.."
+            echo "Installing zsh"
+            sudo apt install -y zsh
+        fi 
+
+        if [[ $choice2 -eq 13 ]]
+        then
+            echo "Installing Oh My ZSH!...."
+            sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        fi 
+
+
+
+        if [[ $choice2 -eq 14 ]]
+        then
+            echo "Back to list.."
+        fi
+                
+                
+
+        if [[ $choice2 -gt 13 ]] || [[ $choice2 -lt 1 ]]  && [ $choice2 -ne 14 ]
+        then
+            echo "Invalid number !"
         fi
       done
       ;;

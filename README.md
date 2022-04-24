@@ -5,7 +5,7 @@ To use this script copy this command to Terminal:
 
  1. Download
 ```
-curl https://raw.githubusercontent.com/samad20/After-install-PopOS/main/afterInstallPopOs.sh --output afterInstallPopOs.sh
+wget -O afterInstallPopOs.sh https://raw.githubusercontent.com/samad20/After-install-PopOS/main/afterInstallPopOs.sh
 ```
  2. Read, Edit & save
  

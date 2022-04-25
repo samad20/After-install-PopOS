@@ -43,7 +43,7 @@ do
 
     2)
       choice2=0
-      while [ $choice2 -ne 14 ]
+      while [ $choice2 -ne 16 ]
       do
         printf "\nchose which package you want by typing number"
         
@@ -67,8 +67,12 @@ do
         printf "\nShell:\n"
         echo "  12. zsh"
         echo "  13. Oh My ZSH!"
+        
+        printf "\nDrive tools:\n"
+        echo "  14. ntfs-3g"
+        echo "  15. nfs-kernel-server & nfs-common"
 
-        printf "\n14. Back to list..\n"
+        printf "\n16. Back to list..\n"
         echo -n "Enter a naumber: "
         read choice2
         echo
@@ -155,17 +159,29 @@ do
             echo "Installing Oh My ZSH!...."
             sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         fi 
-
-
-
+        
         if [[ $choice2 -eq 14 ]]
+        then
+            echo "Installing Oh My ntfs-3g...."
+            sudo apt install -y ntfs-3g
+        fi 
+        
+        if [[ $choice2 -eq 15 ]]
+        then
+            echo "Installing Oh My ntfs-3g...."
+            sudo apt install -y nfs-kernel-server nfs-common
+        fi
+
+
+
+        if [[ $choice2 -eq 16 ]]
         then
             echo "Back to list.."
         fi
                 
                 
 
-        if [[ $choice2 -gt 13 ]] || [[ $choice2 -lt 1 ]]  && [ $choice2 -ne 14 ]
+        if [[ $choice2 -gt 15 ]] || [[ $choice2 -lt 1 ]]  && [ $choice2 -ne 16 ]
         then
             echo "Invalid number !"
         fi
